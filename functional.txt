@@ -1,0 +1,12 @@
+Concepts of functional programming comes from lambda-calculus.
+
+In the late 1950s, John McCarthy took the concepts derived from λ-calculus and applied them to a
+new programming language called Lisp. Lisp implemented the concept of higher-order functions and
+functions as first-class members or first-class citizens. A function is considered a first-class member
+when it can be declared as a variable and sent to functions as an argument. These functions can even
+be returned from functions.
+
+
+Higher order functions
+======================
+function that take function or return function are calle HOF.

@@ -1,0 +1,102 @@
+Object destructuring
+====================
+person = {
+name: "manoj"
+roll: 12
+}
+
+var {name, roll} = person 
+console.log(name) // manoj
+console.log(roll) // 12 
+
+var myarr = [1,2,3]
+var[x] = myarr;
+console.log(x) // 1
+
+Object literal enhancement
+==========================
+var name = "manoj";
+var roll = 12;
+var ssn = "12asa";
+var getSsn = () => ssn;
+
+var person = {name, roll, getSsn}
+console.log(person.name) // manoj
+console.log(person.roll) // 12
+console.log(person.getSsn())
+
+The spread operator
+====================
+- three dot operator(...)
+
+var twoWhellers = ["bike", "cycle"]
+var fourWhellers = ["car", "bus"]
+
+// Combine two arrays.
+var vehicles = [...twoWhellers, ...fourWhellers]
+
+console.log(vehicles)
+
+// Drop first item
+[dropped, ...newVehicles] = vehicles; 
+
+// Passing n no of arguments like args 
+
+function (...args) {
+	console.log(args.length);
+}
+
+// Can also used with object 
+
+var personInfo = {
+	name: "manoj Gautam",
+	income: "150,000K"
+	}
+
+var personLocation = {
+	address: "Pokhara"
+	}
+
+
+var person = {
+	...personInfo,
+	...personLocation,
+	ssn: "12345s"
+	}
+	
+Promises
+============
+
+
+classes
+=============
+
+
+ES6 modules
+==============
+- One file per module.
+- export is use to make a module available.
+- export default make only one module available.
+- import is used to import variables.
+- * is used to import everything.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
