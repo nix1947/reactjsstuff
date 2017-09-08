@@ -4,6 +4,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
     entry: {
+        chapter6: './static_src/app6.js',
         app: './static_src/app.js'
     },
     output: {
@@ -54,7 +55,7 @@ module.exports = {
     },
 
     plugins: [
-        new CleanWebpackPlugin(['static_dist']),
+        // new CleanWebpackPlugin(['static_dist']),
         new webpack.ProvidePlugin({
             $: 'jquery',
             jQuery: 'jquery',

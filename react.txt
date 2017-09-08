@@ -1,0 +1,7 @@
+State management in react
+=========================
+- Properties are immutable in react.
+- state in the react component are expressed with single js object.
+- When the state of a component changes, the component renders a new UI that reflects those changes
+- It’s a good idea to try to keep as many of your components as possible
+stateless.

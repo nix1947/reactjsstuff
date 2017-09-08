@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 187);
+/******/ 	return __webpack_require__(__webpack_require__.s = 183);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -22370,11 +22370,7 @@ module.exports = ReactDOMInvalidARIAHook;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 183 */,
-/* 184 */,
-/* 185 */,
-/* 186 */,
-/* 187 */
+/* 183 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22388,27 +22384,183 @@ var _reactDom = __webpack_require__(97);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
+var _chapter = __webpack_require__(184);
+
+var _chapter2 = _interopRequireDefault(_chapter);
+
+var _addcolorformfunc = __webpack_require__(185);
+
+var _star = __webpack_require__(186);
+
+var _star2 = _interopRequireDefault(_star);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var app = function app() {
-	return console.log("hello world");
+var logColor = function logColor(title, color) {
+  console.log('Color: ' + color + ' | Title ' + title);
 };
 
-app();
+var App = function App(props) {
+  return _react2.default.createElement(
+    'div',
+    null,
+    _react2.default.createElement(_chapter2.default, { getColor: logColor }),
+    _react2.default.createElement(_chapter2.default, { getColor: function getColor(title, color) {
+        return console.log(title, color);
+      } }),
+    _react2.default.createElement(_addcolorformfunc.AddColorForm, { sendColor: function sendColor(color, title) {
+        return console.log(color, title, "func");
+      } }),
+    _react2.default.createElement(_star2.default, null)
+  );
+};
+_reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById("root"));
 
-var NavBar = function NavBar(props) {
-	return _react2.default.createElement(
-		'div',
-		null,
-		_react2.default.createElement(
-			'h1',
-			null,
-			'This is navbar'
-		)
-	);
+/***/ }),
+/* 184 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(49);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var AddColorForm = function (_Component) {
+  _inherits(AddColorForm, _Component);
+
+  function AddColorForm(props) {
+    _classCallCheck(this, AddColorForm);
+
+    // Need to bind this, while calling a function.
+    var _this = _possibleConstructorReturn(this, (AddColorForm.__proto__ || Object.getPrototypeOf(AddColorForm)).call(this, props));
+
+    _this.submit = _this.submit.bind(_this);
+    return _this;
+  }
+
+  _createClass(AddColorForm, [{
+    key: 'submit',
+    value: function submit(e) {
+      var _refs = this.refs,
+          _title = _refs._title,
+          _color = _refs._color;
+
+      e.preventDefault();
+      // pass data to some getColor handler which might be action.
+      this.props.getColor(this.refs._title.value, this.refs._color.value);
+      // rest the form
+      this.refs._title.value = "";
+      this.refs._color.value = '#000';
+      this.refs._title.focus();
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      // ref is an identifier, that react used to indentify dom.
+      return _react2.default.createElement(
+        'form',
+        { onSubmit: this.submit },
+        _react2.default.createElement('input', {
+          type: 'text',
+          ref: '_title',
+          placeholder: 'color title ...' }),
+        _react2.default.createElement('input', {
+          ref: '_color',
+          type: 'color' }),
+        _react2.default.createElement(
+          'button',
+          { type: 'submit' },
+          'Submit'
+        )
+      );
+    }
+  }]);
+
+  return AddColorForm;
+}(_react.Component);
+
+// // Defining default props types.
+// AddColorForm.propTypes = {
+//   getColor: propTypes.Func
+// }
+
+// set the default values to handle, when the props are not sent.
+// AddColorForm.propTypes = {
+// onNewColor: PropTypes.func
+// }
+// AddColorForm.defaultProps = {
+// onNewColor: f=>f
+// }
+
+
+exports.default = AddColorForm;
+
+/***/ }),
+/* 185 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.AddColorForm = undefined;
+
+var _react = __webpack_require__(49);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var AddColorForm = exports.AddColorForm = function AddColorForm(props) {
+  var _title = void 0,
+      _color = void 0;
+
+  var submit = function submit(e) {
+    e.preventDefault();
+    props.sendColor(_title.value, _color.value);
+  };
+  return _react2.default.createElement(
+    "form",
+    { onClick: submit },
+    _react2.default.createElement("input", { type: "text",
+      ref: function ref(input) {
+        return _title = input;
+      },
+      placeholder: "your color..",
+      refs: "_title" }),
+    _react2.default.createElement("input", {
+      ref: function ref(input) {
+        return _color = input;
+      },
+
+      type: "color" }),
+    _react2.default.createElement("input", { type: "submit", value: "Submit" })
+  );
 };
 
-_reactDom2.default.render(_react2.default.createElement(NavBar, null), document.getElementById('root'));
+/***/ }),
+/* 186 */
+/***/ (function(module, exports) {
+
+throw new Error("Module build failed: SyntaxError: C:/reactjsstuff/static_src/components/star.js: Unexpected token (12:0)\n\n\u001b[0m \u001b[90m 10 | \u001b[39monClick\u001b[33m:\u001b[39m \u001b[33mPropTypes\u001b[39m\u001b[33m.\u001b[39mfunc\n \u001b[90m 11 | \u001b[39m}\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 12 | \u001b[39m\n \u001b[90m    | \u001b[39m\u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n");
 
 /***/ })
 /******/ ]);
